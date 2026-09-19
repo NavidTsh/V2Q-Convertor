@@ -1,5 +1,6 @@
-#V2Q Conertor
-# OVF/OVA → qcow2 Web App
+# V2Q Conertor
+
+This web app converts OVA/OVF files to QCOW2 images for use with OpenStack. It can also install VirtIO drivers on QCOW2 images.
 
 ## Architecture
 
