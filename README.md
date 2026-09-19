@@ -36,8 +36,10 @@ accept arbitrary image names or extra docker flags from callers.
    a random `SESSION_SECRET`.
 2. Make sure the image named in `V2V_DOCKER_IMAGE` (default
    `v2q:3.1.0`) is already built on this host (`docker images | grep v2q`).
-3. `docker compose up -d --build`
-4. The UI listens on `127.0.0.1:8080` only (not exposed externally by
+   If the image is not built on the host, you should download the v2q-3.1.0.img image from this repository and load it into Docker using the following command:
+   `docker image load -i v2q-3.1.0.img`
+4. `docker compose up -d --build`
+5. The UI listens on `127.0.0.1:8080` only (not exposed externally by
    itself). Put nginx (or similar) in front with TLS for real access:
 
    ```nginx
@@ -56,7 +58,7 @@ accept arbitrary image names or extra docker flags from callers.
    }
    ```
 
-5. Restrict network access to this host/port to your internal network
+6. Restrict network access to this host/port to your internal network
    (firewall, VPN, security group, etc) - the built-in login is a
    convenience, not a substitute for network-level restriction.
 
